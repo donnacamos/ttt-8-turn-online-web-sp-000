@@ -45,20 +45,15 @@ def position_taken?(board, index)
 end
 
 def turn(board)
- puts "Please enter 1-9:"
- puts "   |   |   "
- puts "-----------"
- puts "   | X |   "
- puts "-----------"
- puts "   |   |   "
-user_input = gets.chomp
-input_to_index(user_input) = "1"
-if valid_move?(board, 0)
-  return move(board, 0, "X")
-else 
-   turn(board) 
- 
-end
+  puts "Please enter 1-9:"
+  input = gets.strip
+  index = input_to_index(input)
+  if valid_move?(board, index)
+    move(board, index)
+    display_board(board)
+  else
+    turn(board)
+  end
 end
 
 
